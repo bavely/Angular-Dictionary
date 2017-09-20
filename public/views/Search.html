@@ -1,0 +1,13 @@
+<div ng-controller="searching">
+
+    <h1>{{word}}</h1>
+    <input type="text" ng-model="dataObj.word">
+    <input type="button" value="click" ng-click="handleSubmit()">
+    <div ng-repeat=" i in dataObj.results">
+        <ul>
+            <li>{{i.definition}}</li>
+        </ul>
+
+    </div>
+    <a href="#!saved">Go Save</a>
+</div>
