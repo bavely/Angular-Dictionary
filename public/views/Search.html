@@ -1,13 +1,28 @@
-<div ng-controller="searching">
-
-    <h1>{{word}}</h1>
-    <input type="text" ng-model="dataObj.word">
-    <input type="button" value="click" ng-click="handleSubmit()">
-    <div ng-repeat=" i in dataObj.results">
+<div class="row" ng-controller="searching">
+    <div class="col-md-6 col-md-offset-3">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="input-group">
+                    <input type="text" ng-model="dataObj.word" class="form-control" placeholder="Search for...">
+                    <span class="input-group-btn">
+            <button class="btn btn-light" type="button" ng-click="handleSubmit()"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ng-repeat=" obj in dataObj.results">
         <ul>
-            <li>{{i.definition}}</li>
+            <li>
+                <h2>{{obj.word}}
+                </h2><br>
+                <p>{{obj.definition}}</p><br>
+                <p>{{obj.example}}</p>
+                <button type="button" class="btn btn-secondary">Secondary</button>
+            </li>
         </ul>
 
     </div>
     <a href="#!saved">Go Save</a>
+</div>
 </div>

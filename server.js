@@ -27,6 +27,26 @@ app.get("/", function(req, res) {
     res.sendFile(__dirname + "/public/index.html");
 });
 
+
+app.post("api/saved", function(req, res) {
+    var data = {
+        theword: req.body.dif.word,
+        definitions: req.body.dif.definition,
+        examples: req.body.dif.example
+    }
+    var dataTosave = new Words(data);
+    dataTosave.save(function(err) {
+        if (err) return handleError(err);
+        console.log("Saved!!");
+    });
+});
+
+// app.get("api/saved", function(req, res){
+
+
+// })
+
+
 app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
 });
